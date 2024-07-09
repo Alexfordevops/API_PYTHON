@@ -1,0 +1,7 @@
+pip install -r requirements.txt
+django-admin startproject Escola && cd Escola
+django-admin startapp Cursos
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser (user: python/key: python)
+python manage.py runserver
