@@ -7,8 +7,9 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
     TokenBlacklistView
 )
-
 from Cursos.views import LogoutView #
+from django.conf.urls.static import static
+from django.conf import settings
 
 # Rotas globais do projeto
 
@@ -23,3 +24,10 @@ urlpatterns = [
     path('api/token/blacklist/', TokenBlacklistView.as_view(), name='token_blacklist'),
     path('api/logout/', LogoutView.as_view(), name='auth_logout'),
 ]
+
+# Modo DEBUG ativo
+if settings.DEBUG:
+   urlpatterns += static(
+      settings.MEDIA_URL,
+      document_root=settings.MEDIA_ROOT,
+   ) 
