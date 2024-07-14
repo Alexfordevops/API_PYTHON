@@ -1,4 +1,4 @@
-version: 3.9
+version: "3.9"
 
 services:
   app:
@@ -12,19 +12,19 @@ services:
       - 8000:8000
     volumes:
       - ./Escola:/Escola
-    enviroment:
+    environment:
       - SECRET_KEY=devsecretkey
       - DEBUG=1
       - DB_HOST=db
       - DB_NAME=devdb
       - DB_USER=devuser
       - DB_PASS=changeme
-    depend_on:
+    depends_on:
       - db
 
   db:
     image: postgres:13-alpine
-    enviroment:
+    environment:
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=changeme 
